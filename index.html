@@ -1,1 +1,173 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHADOW OS</title><link rel="stylesheet" href="style.css"></head><body><header><div class="brand">● SHADOW<span>OS</span></div><div class="status">SYSTEM ONLINE <b id="clock">--:--:--</b></div></header><main><p class="eyebrow">PERSONAL CYBER LAB // v1.0</p><h1>WELCOME TO<br><span>THE SHADOW GRID</span></h1><p class="muted">A futuristic dashboard for learning cybersecurity concepts.</p><div class="grid"><section class="panel"><h2>⌁ SYSTEM OVERVIEW</h2><div class="stats"><div><small>PLATFORM</small><strong id="platform">Detecting…</strong></div><div><small>LANGUAGE</small><strong id="language">--</strong></div><div><small>SCREEN</small><strong id="screen">--</strong></div><div><small>TIME</small><strong id="localtime">--</strong></div></div></section><section class="panel"><h2>⌁ PUBLIC IP LOOKUP</h2><p class="muted">Basic public IP details for your connection.</p><button id="ipBtn">RUN IP LOOKUP</button><pre id="ipResult">Awaiting command…</pre></section><section class="panel terminal"><h2>⌁ TERMINAL SIMULATOR</h2><p class="muted">Demo terminal. Type <b>help</b> to see commands.</p><div id="output">SHADOW OS [Version 1.0]<br>Type help to begin.</div><form id="termForm"><span>guest@shadow:~$</span><input id="cmd" autocomplete="off" aria-label="Terminal command"><button>EXEC</button></form></section><section class="panel"><h2>⌁ SECURITY NOTES</h2><ul><li>Test only systems you own or have permission to assess.</li><li>Never publish passwords, tokens, or private keys.</li><li>This is an educational demo—not a hacking tool.</li></ul></section></div><footer>SHADOW OS /// OPEN SOURCE LEARNING PROJECT</footer></main><script src="script.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHADOW OS v2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>
+    <div class="brand">
+        <i></i> SHADOW<span>OS</span>
+        <small>v2.0</small>
+    </div>
+
+    <div class="status">
+        <b class="pulse"></b>
+        SYSTEM ONLINE
+        <span id="clock">--:--:--</span>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <p class="eyebrow">PERSONAL CYBER LAB // BUILD 002</p>
+
+        <h1>
+            WELCOME TO<br>
+            <span>THE SHADOW GRID</span>
+        </h1>
+
+        <p class="muted">
+            Observe. Explore. Learn.
+            <span class="accent">Stay authorized.</span>
+        </p>
+    </section>
+
+    <div class="grid">
+
+        <section class="panel">
+            <h2>⌁ SYSTEM OVERVIEW</h2>
+
+            <div class="stats">
+                <div>
+                    <small>PLATFORM</small>
+                    <strong id="platform">Detecting...</strong>
+                </div>
+
+                <div>
+                    <small>LANGUAGE</small>
+                    <strong id="language">--</strong>
+                </div>
+
+                <div>
+                    <small>SCREEN</small>
+                    <strong id="screen">--</strong>
+                </div>
+
+                <div>
+                    <small>LOCAL TIME</small>
+                    <strong id="localtime">--</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>⌁ PUBLIC IP LOOKUP</h2>
+
+            <p class="muted">
+                Basic public IP information.
+            </p>
+
+            <button id="ipBtn">RUN IP LOOKUP</button>
+
+            <pre id="ipResult">Awaiting command...</pre>
+
+            <small class="note">
+                Approximate location only.
+            </small>
+        </section>
+
+        <section class="panel">
+            <h2>⌁ RADAR SCANNER</h2>
+
+            <div class="radar-wrap">
+                <div class="radar">
+                    <div class="sweep"></div>
+                    <i class="blip b1"></i>
+                    <i class="blip b2"></i>
+                    <i class="blip b3"></i>
+                </div>
+            </div>
+
+            <p class="muted center" id="radarStatus">
+                SIMULATED RADAR // STANDBY
+            </p>
+
+            <button id="radarBtn">START SIMULATION</button>
+        </section>
+
+        <section class="panel">
+            <h2>⌁ NETWORK MAP</h2>
+
+            <div class="network">
+                <div class="node core">YOU</div>
+                <div class="node n1">DNS</div>
+                <div class="node n2">WEB</div>
+                <div class="node n3">CLOUD</div>
+
+                <svg viewBox="0 0 400 180">
+                    <path d="M200 90 L70 35 M200 90 L330 35 M200 90 L70 145 M200 90 L330 145"/>
+                </svg>
+            </div>
+
+            <p class="muted center">
+                Illustrative network map.
+            </p>
+        </section>
+
+        <section class="panel terminal">
+            <h2>⌁ TERMINAL SIMULATOR</h2>
+
+            <p class="muted">
+                Type help to see available commands.
+            </p>
+
+            <div id="output">
+                SHADOW OS [Version 2.0]<br>
+                Secure session initialized.<br>
+                Type help to begin.
+            </div>
+
+            <form id="termForm">
+                <span>guest@shadow:~$</span>
+
+                <input
+                    id="cmd"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+                <button>EXEC</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>⌁ SECURITY NOTES</h2>
+
+            <ul>
+                <li>Test only systems you own or have permission to assess.</li>
+                <li>Never publish passwords or private keys.</li>
+                <li>This is an educational simulation.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        SHADOW OS /// OPEN SOURCE PROJECT /// v2.0
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
