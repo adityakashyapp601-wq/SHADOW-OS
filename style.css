@@ -1,1 +1,356 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700&display=swap');:root{--green:#4dff9a;--line:#1c4532;--text:#d7f5e4}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10251b,#050908 60%);color:var(--text);font-family:'Share Tech Mono',monospace;min-height:100vh}header{display:flex;justify-content:space-between;align-items:center;padding:22px 6%;border-bottom:1px solid var(--line);background:#06100cdd}.brand{font:700 1.25rem Orbitron;letter-spacing:3px}.brand span,h1 span{color:var(--green)}.status{color:var(--green);font-size:.8rem}.status b{margin-left:15px;color:#9ab9a7}main{max-width:1100px;margin:auto;padding:30px 20px}.eyebrow{color:var(--green);letter-spacing:3px;font-size:.75rem}h1{font:700 clamp(2rem,6vw,4rem) Orbitron;line-height:1.2;margin:15px 0}.muted{color:#8aa999}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}.panel{background:linear-gradient(145deg,#0b1712,#07100d);border:1px solid var(--line);padding:20px;border-radius:5px;box-shadow:0 0 18px #00ff6610}.panel h2{font-size:1rem;color:var(--green);margin:0 0 18px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.stats small{display:block;color:#729481;font-size:.7rem}.stats strong{display:block;margin-top:7px;overflow-wrap:anywhere}button{background:#0b2b1b;color:var(--green);border:1px solid var(--green);padding:10px 14px;font:inherit;cursor:pointer}button:hover{background:var(--green);color:#041008}pre{white-space:pre-wrap;color:var(--green);min-height:40px;overflow-wrap:anywhere}.terminal{grid-column:1/-1}#output{background:#020604;border:1px solid #173a28;padding:12px;min-height:130px;max-height:250px;overflow:auto;color:var(--green);line-height:1.6}form{display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--green)}input{background:transparent;color:var(--text);border:0;border-bottom:1px solid var(--line);font:inherit;outline:none;flex:1;min-width:0;padding:8px}ul{padding-left:20px;line-height:1.8}footer{text-align:center;color:#60816d;font-size:.75rem;letter-spacing:2px;padding:30px}@media(max-width:650px){.grid{grid-template-columns:1fr}header{padding:18px 5%}.status{font-size:.65rem}.terminal{grid-column:auto}}
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700&display=swap');
+
+:root {
+    --green: #4dff9a;
+    --line: #1c4532;
+    --text: #d7f5e4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #040907;
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+}
+
+#matrix {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.13;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    border-bottom: 1px solid var(--line);
+    background: #06100cdd;
+}
+
+.brand {
+    font: 700 1.2rem Orbitron;
+    letter-spacing: 3px;
+}
+
+.brand span,
+h1 span,
+footer span {
+    color: var(--green);
+}
+
+.brand i,
+.pulse {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--green);
+    margin-right: 8px;
+}
+
+.pulse {
+    animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.25;
+        box-shadow: 0 0 2px var(--green);
+    }
+}
+
+.status {
+    color: var(--green);
+    font-size: 0.8rem;
+}
+
+.status span {
+    margin-left: 14px;
+    color: #9ab9a7;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 28px 20px;
+}
+
+.hero {
+    padding: 20px 0 12px;
+}
+
+.eyebrow {
+    color: var(--green);
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+}
+
+h1 {
+    font: 700 clamp(2rem, 6vw, 4rem) Orbitron;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.muted,
+.note {
+    color: #8aa999;
+}
+
+.accent {
+    color: var(--green);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.panel {
+    background: linear-gradient(145deg, #0b1712ed, #07100ded);
+    border: 1px solid var(--line);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 18px #00ff6610;
+}
+
+.panel h2 {
+    font-size: 1rem;
+    color: var(--green);
+    margin: 0 0 18px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stats small {
+    display: block;
+    color: #729481;
+    font-size: 0.7rem;
+}
+
+.stats strong {
+    display: block;
+    margin-top: 7px;
+    overflow-wrap: anywhere;
+}
+
+button {
+    background: #0b2b1b;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 10px 14px;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--green);
+    color: #041008;
+}
+
+pre {
+    white-space: pre-wrap;
+    color: var(--green);
+    min-height: 35px;
+    overflow-wrap: anywhere;
+}
+
+.note {
+    font-size: 0.68rem;
+}
+
+.center {
+    text-align: center;
+}
+
+/* RADAR */
+
+.radar-wrap {
+    display: grid;
+    place-items: center;
+    padding: 4px;
+}
+
+.radar {
+    width: 170px;
+    height: 170px;
+    border: 1px solid #32845b;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0 27px,
+            #28644380 28px 29px
+        ),
+        linear-gradient(90deg, transparent 49.5%, #28644380 50%, transparent 50.5%),
+        linear-gradient(transparent 49.5%, #28644380 50%, transparent 50.5%),
+        #06150e;
+}
+
+.sweep {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0 78%,
+        #4dff9a55 100%
+    );
+    border-radius: 50%;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.blip {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 9px var(--green);
+}
+
+.b1 { left: 65%; top: 28%; }
+.b2 { left: 28%; top: 58%; }
+.b3 { left: 72%; top: 72%; }
+
+/* NETWORK MAP */
+
+.network {
+    height: 160px;
+    position: relative;
+    max-width: 430px;
+    margin: auto;
+}
+
+.network svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.network path {
+    fill: none;
+    stroke: #39c879;
+    stroke-width: 1.5;
+    stroke-dasharray: 5 5;
+    animation: dash 2s linear infinite;
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: -20; }
+}
+
+.node {
+    position: absolute;
+    z-index: 1;
+    border: 1px solid var(--green);
+    background: #07150e;
+    color: var(--green);
+    padding: 8px 12px;
+    font-size: 0.7rem;
+}
+
+.core {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #123b25;
+}
+
+.n1 { left: 7%; top: 8%; }
+.n2 { right: 7%; top: 8%; }
+.n3 { left: 7%; bottom: 8%; }
+
+.terminal {
+    grid-column: 1 / -1;
+}
+
+#output {
+    background: #020604;
+    border: 1px solid #173a28;
+    padding: 12px;
+    min-height: 130px;
+    max-height: 250px;
+    overflow: auto;
+    color: var(--green);
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: var(--green);
+}
+
+input {
+    background: transparent;
+    color: var(--text);
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    font: inherit;
+    outline: none;
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+}
+
+ul {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+footer {
+    text-align: center;
+    color: #60816d;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    padding: 30px;
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 17px 5%;
+    }
+
+    .status {
+        font-size: 0.62rem;
+    }
+
+    .terminal {
+        grid-column: auto;
+    }
+
+    main {
+        padding: 20px 14px;
+    }
+}
