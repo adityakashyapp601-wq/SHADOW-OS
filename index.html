@@ -2,172 +2,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHADOW OS v2.0</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHADOW OS | Cyber Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="app">
 
-<header>
-    <div class="brand">
-        <i></i> SHADOW<span>OS</span>
-        <small>v2.0</small>
+  <aside class="sidebar">
+    <div class="logo">◈ SHADOW<span>OS</span></div>
+    <p class="side-label">MAIN MENU</p>
+
+    <button class="nav active" data-page="dashboard">⌂ Dashboard</button>
+    <button class="nav" data-page="osint">⌕ OSINT Tools</button>
+    <button class="nav" data-page="security">⬡ Security Lab</button>
+    <button class="nav" data-page="utilities">⌘ Cyber Utilities</button>
+    <button class="nav" data-page="terminal">▣ Terminal</button>
+    <button class="nav" data-page="learn">◉ Learning Lab</button>
+
+    <div class="sidebar-bottom">
+      <div class="status"><span class="dot"></span> SYSTEM ONLINE</div>
+      <p>SHADOW OS V3.0</p>
     </div>
+  </aside>
 
-    <div class="status">
-        <b class="pulse"></b>
-        SYSTEM ONLINE
-        <span id="clock">--:--:--</span>
-    </div>
-</header>
+  <main class="main">
 
-<main>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">CYBER INTELLIGENCE PLATFORM</p>
+        <h2 id="pageTitle">Dashboard</h2>
+      </div>
+      <div class="top-right">
+        <span id="clock">00:00:00</span>
+        <button id="themeBtn" class="icon-btn">◐</button>
+      </div>
+    </header>
 
-    <section class="hero">
-        <p class="eyebrow">PERSONAL CYBER LAB // BUILD 002</p>
+    <section id="dashboard" class="page active-page">
+      <div class="hero">
+        <div>
+          <span class="tag">WELCOME TO SHADOW OS</span>
+          <h1>Think <span>Beyond</span><br>The Digital World.</h1>
+          <p>Your personal cybersecurity & intelligence toolkit.</p>
+          <button class="primary" onclick="showPage('osint')">Explore OSINT →</button>
+        </div>
+        <div class="hero-art">
+          <div class="orbit orbit1"></div>
+          <div class="orbit orbit2"></div>
+          <div class="core">◈</div>
+        </div>
+      </div>
 
-        <h1>
-            WELCOME TO<br>
-            <span>THE SHADOW GRID</span>
-        </h1>
+      <div class="stats">
+        <div class="stat-card"><span>AVAILABLE TOOLS</span><h2>18+</h2><small>Cyber utilities</small></div>
+        <div class="stat-card"><span>PLATFORM STATUS</span><h2 class="green">ONLINE</h2><small>Operational</small></div>
+        <div class="stat-card"><span>YOUR ACTIVITY</span><h2 id="activityCount">0</h2><small>Tools used this session</small></div>
+      </div>
 
-        <p class="muted">
-            Observe. Explore. Learn.
-            <span class="accent">Stay authorized.</span>
-        </p>
+      <h3 class="section-title">QUICK ACCESS</h3>
+      <div class="tool-grid">
+        <div class="tool-card" onclick="showPage('osint')"><span>⌕</span><h3>OSINT Toolkit</h3><p>Public domain intelligence</p></div>
+        <div class="tool-card" onclick="showPage('security')"><span>⬡</span><h3>Security Lab</h3><p>Analyze security posture</p></div>
+        <div class="tool-card" onclick="showPage('utilities')"><span>⌘</span><h3>Cyber Utilities</h3><p>Useful developer tools</p></div>
+        <div class="tool-card" onclick="showPage('terminal')"><span>▣</span><h3>Terminal</h3><p>Command simulator</p></div>
+      </div>
     </section>
 
-    <div class="grid">
+    <section id="osint" class="page">
+      <div class="notice">⚠ Use these tools only for public information and domains you own or have permission to analyze.</div>
+      <h3 class="section-title">OSINT TOOLKIT</h3>
+      <div class="tool-grid">
+        <div class="tool-card" onclick="openTool('dns')"><span>⌕</span><h3>DNS Lookup</h3><p>View public DNS records</p></div>
+        <div class="tool-card" onclick="openTool('ip')"><span>◎</span><h3>Public IP Lookup</h3><p>Public IP information</p></div>
+        <div class="tool-card" onclick="openTool('ssl')"><span>♧</span><h3>SSL Checker</h3><p>Certificate details</p></div>
+        <div class="tool-card" onclick="openTool('headers')"><span>⬡</span><h3>Security Headers</h3><p>Website header analysis</p></div>
+        <div class="tool-card" onclick="openTool('whois')"><span>◉</span><h3>Domain Info</h3><p>Registration data via public source</p></div>
+        <div class="tool-card" onclick="openTool('subdomain')"><span>⌘</span><h3>Subdomain Lookup</h3><p>Public certificate records</p></div>
+        <div class="tool-card" onclick="openTool('uptime')"><span>↗</span><h3>Website Status</h3><p>Check website availability</p></div>
+        <div class="tool-card" onclick="openTool('meta')"><span>▤</span><h3>Metadata Viewer</h3><p>View public page metadata</p></div>
+      </div>
+    </section>
 
-        <section class="panel">
-            <h2>⌁ SYSTEM OVERVIEW</h2>
+    <section id="security" class="page">
+      <h3 class="section-title">SECURITY LAB</h3>
+      <div class="tool-grid">
+        <div class="tool-card" onclick="openTool('password')"><span>♧</span><h3>Password Analyzer</h3><p>Local password strength check</p></div>
+        <div class="tool-card" onclick="openTool('url')"><span>⚠</span><h3>URL Safety</h3><p>Check suspicious URL indicators</p></div>
+        <div class="tool-card" onclick="openTool('hash')"><span>⌘</span><h3>Hash Generator</h3><p>SHA-256 hash</p></div>
+      </div>
+    </section>
 
-            <div class="stats">
-                <div>
-                    <small>PLATFORM</small>
-                    <strong id="platform">Detecting...</strong>
-                </div>
+    <section id="utilities" class="page">
+      <h3 class="section-title">CYBER UTILITIES</h3>
+      <div class="tool-grid">
+        <div class="tool-card" onclick="openTool('base64')"><span>⌘</span><h3>Base64 Tool</h3><p>Encode & decode text</p></div>
+        <div class="tool-card" onclick="openTool('jwt')"><span>◈</span><h3>JWT Decoder</h3><p>Decode token locally</p></div>
+        <div class="tool-card" onclick="openTool('json')"><span>▤</span><h3>JSON Formatter</h3><p>Format JSON</p></div>
+        <div class="tool-card" onclick="openTool('regex')"><span>⌕</span><h3>Regex Tester</h3><p>Test expressions locally</p></div>
+      </div>
+    </section>
 
-                <div>
-                    <small>LANGUAGE</small>
-                    <strong id="language">--</strong>
-                </div>
+    <section id="terminal" class="page">
+      <h3 class="section-title">SHADOW TERMINAL</h3>
+      <div class="terminal">
+        <div class="terminal-head"><span>●</span> shadow@core:~</div>
+        <div id="terminalOutput">SHADOW OS V3 Terminal<br>Type <b>help</b> to view commands.<br><br></div>
+        <div class="terminal-input">
+          <span>shadow $</span>
+          <input id="terminalInput" placeholder="Enter command..." autocomplete="off">
+        </div>
+      </div>
+    </section>
 
-                <div>
-                    <small>SCREEN</small>
-                    <strong id="screen">--</strong>
-                </div>
+    <section id="learn" class="page">
+      <h3 class="section-title">LEARNING LAB</h3>
+      <div class="tool-grid">
+        <div class="tool-card" onclick="openTool('quiz')"><span>◉</span><h3>Cyber Quiz</h3><p>Test your knowledge</p></div>
+        <div class="tool-card" onclick="openTool('linux')"><span>▣</span><h3>Linux Reference</h3><p>Learn useful commands</p></div>
+        <div class="tool-card" onclick="openTool('roadmap')"><span>↗</span><h3>Learning Roadmap</h3><p>Start your cyber journey</p></div>
+      </div>
+    </section>
 
-                <div>
-                    <small>LOCAL TIME</small>
-                    <strong id="localtime">--</strong>
-                </div>
-            </div>
-        </section>
-
-        <section class="panel">
-            <h2>⌁ PUBLIC IP LOOKUP</h2>
-
-            <p class="muted">
-                Basic public IP information.
-            </p>
-
-            <button id="ipBtn">RUN IP LOOKUP</button>
-
-            <pre id="ipResult">Awaiting command...</pre>
-
-            <small class="note">
-                Approximate location only.
-            </small>
-        </section>
-
-        <section class="panel">
-            <h2>⌁ RADAR SCANNER</h2>
-
-            <div class="radar-wrap">
-                <div class="radar">
-                    <div class="sweep"></div>
-                    <i class="blip b1"></i>
-                    <i class="blip b2"></i>
-                    <i class="blip b3"></i>
-                </div>
-            </div>
-
-            <p class="muted center" id="radarStatus">
-                SIMULATED RADAR // STANDBY
-            </p>
-
-            <button id="radarBtn">START SIMULATION</button>
-        </section>
-
-        <section class="panel">
-            <h2>⌁ NETWORK MAP</h2>
-
-            <div class="network">
-                <div class="node core">YOU</div>
-                <div class="node n1">DNS</div>
-                <div class="node n2">WEB</div>
-                <div class="node n3">CLOUD</div>
-
-                <svg viewBox="0 0 400 180">
-                    <path d="M200 90 L70 35 M200 90 L330 35 M200 90 L70 145 M200 90 L330 145"/>
-                </svg>
-            </div>
-
-            <p class="muted center">
-                Illustrative network map.
-            </p>
-        </section>
-
-        <section class="panel terminal">
-            <h2>⌁ TERMINAL SIMULATOR</h2>
-
-            <p class="muted">
-                Type help to see available commands.
-            </p>
-
-            <div id="output">
-                SHADOW OS [Version 2.0]<br>
-                Secure session initialized.<br>
-                Type help to begin.
-            </div>
-
-            <form id="termForm">
-                <span>guest@shadow:~$</span>
-
-                <input
-                    id="cmd"
-                    autocomplete="off"
-                    spellcheck="false"
-                >
-
-                <button>EXEC</button>
-            </form>
-        </section>
-
-        <section class="panel">
-            <h2>⌁ SECURITY NOTES</h2>
-
-            <ul>
-                <li>Test only systems you own or have permission to assess.</li>
-                <li>Never publish passwords or private keys.</li>
-                <li>This is an educational simulation.</li>
-            </ul>
-        </section>
-
+    <div id="toolModal" class="modal">
+      <div class="modal-box">
+        <button class="close" onclick="closeTool()">×</button>
+        <p class="eyebrow">SHADOW OS TOOL</p>
+        <h2 id="toolTitle">Tool</h2>
+        <div id="toolContent"></div>
+      </div>
     </div>
 
-    <footer>
-        SHADOW OS /// OPEN SOURCE PROJECT /// v2.0
-    </footer>
+    <footer>SHADOW OS V3.0 — CYBER INTELLIGENCE PLATFORM</footer>
 
-</main>
+  </main>
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
